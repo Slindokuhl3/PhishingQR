@@ -81,6 +81,7 @@ jobs:
             libffi-dev \
             libssl-dev \
             automake
+          sudo apt-get install -y gettext
 
       # Set up Java 17 required by Gradle
       - name: Setup Java 17 required by Gradle
@@ -93,7 +94,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.8' #set your python version
+          python-version: '3.9.13' #set your python version
 
       # Install pip dependencies
       - name: Install pip dependencies
