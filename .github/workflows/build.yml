@@ -102,12 +102,17 @@ jobs:
           pip install --upgrade pip
           pip install buildozer cython==0.29.33
 
+      - name: Clear Buildozer cache
+        run: |
+          rum -rf ~/.buildozer
+
       # Build with Buildozer
       - name: Build with Buildozer
         id: buildozer
         run: |
           yes | buildozer -v android debug
         # yes | buildozer -v android release
+        timeout-minutes: 60
         # run this for generating aab (Android App Bundle) [Required by google play]
 
       # Upload artifacts
