@@ -104,7 +104,11 @@ jobs:
 
       - name: Clear Buildozer cache
         run: |
-          rum -rf ~/.buildozer
+          sudo rm -rf ~/.buildozer || true
+          sudo rm -rf .buildozer || true
+          sudo rm -rf ~/.gradle || true
+          sudo rm -rf ~/.android || true
+        shell: bash
 
       # Build with Buildozer
       - name: Build with Buildozer
