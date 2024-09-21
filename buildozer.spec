@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.9.13,kivy==2.3.0,kivymd==1.1.1,sqlite3,pillow,requests,numpy,asyncio,camera4kivy,gestures4kivy,scikit-learn,opencv-python,asynckivy,materialyoucolor,setuptools,libiconv,libzbar,pyzbar,pyjnius,android
+requirements = python3==3.9.13,kivy==2.3.0,kivymd==1.1.1,sqlite3,pillow,requests,asyncio,camera4kivy,gestures4kivy,scikit-learn,opencv-python,asynckivy,materialyoucolor,setuptools,libiconv,libzbar,pyzbar,pyjnius,android
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -64,13 +64,13 @@ orientation = portrait
 # author = © Copyright Info
 
 # change the major version of python used by the app
-osx.python_version = 3.10.12
+osx.python_version = 3.9.13
 
 # Kivy version to use
 osx.kivy_version = 2.3.0
 
 # KivyMD version to use
-osx.kivymd_version = 2.0.1.dev0
+#osx.kivymd_version = 2.0.1.dev0
 #
 # Android specific
 #
