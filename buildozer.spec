@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.10.12,kivy==2.3.0,kivymd,sqlite3,pillow,requests,numpy,asyncio,camera4kivy,gestures4kivy,scikit-learn,opencv-python,asynckivy,materialyoucolor,setuptools,libiconv,libzbar,pyzbar,pyjnius,android
+requirements = python3==3.9.13,kivy==2.3.0,kivymd,sqlite3,pillow,requests,numpy,asyncio,camera4kivy,gestures4kivy,scikit-learn,opencv-python,asynckivy,materialyoucolor,setuptools,libiconv,libzbar,pyzbar,pyjnius,android
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -103,16 +103,16 @@ android.permissions = android.permission.INTERNET, (name=android.permission.WRIT
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-android.api = 30
+#android.api = 30
 
 # (int) Minimum API your APK / AAB will support.
-android.minapi = 21
+#android.minapi = 21
 
 # (int) Android SDK version to use
-android.sdk = 30
+#android.sdk = 30
 
 # (str) Android NDK version to use
-android.ndk = 25b
+#android.ndk = 23b
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
 #android.ndk_api = 21
@@ -203,12 +203,12 @@ android.ndk = 25b
 #android.add_resources =
 
 # (list) Gradle dependencies to add
-android.gradle_dependencies = com.github.linusu:zbar-android:1.0.0,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.0
+#android.gradle_dependencies = com.github.linusu:zbar-android:1.0.0,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.0
 
 # (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
 # contains an 'androidx' package, or any package from Kotlin source.
 # android.enable_androidx requires android.api >= 28
-android.enable_androidx = False
+#android.enable_androidx = False
 
 # (list) add java compile options
 # this can for example be necessary when importing certain java libraries using the 'android.gradle_dependencies' option
@@ -218,14 +218,14 @@ android.enable_androidx = False
 # (list) Gradle repositories to add {can be necessary for some android.gradle_dependencies}
 # please enclose in double quotes 
 # e.g. android.gradle_repositories = "maven { url 'https://kotlin.bintray.com/ktor' }"
-android.add_gradle_repositories = maven { url 'https://jitpack.io' }
+#android.add_gradle_repositories = maven { url 'https://jitpack.io' }
 
 # (list) packaging options to add 
 # see https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.PackagingOptions.html
 # can be necessary to solve conflicts in gradle_dependencies
 # please enclose in double quotes 
 # e.g. android.add_packaging_options = "exclude 'META-INF/common.kotlin_module'", "exclude 'META-INF/*.kotlin_module'"
-android.add_packaging_options = "pickFirst 'lib/*/libzbar.so'", "pickFirst 'lib/*/libiconv.so'"
+#android.add_packaging_options = "pickFirst 'lib/*/libzbar.so'", "pickFirst 'lib/*/libiconv.so'"
 
 # (list) Java classes to add as activities to the manifest.
 #android.add_activities = com.example.ExampleActivity
@@ -251,12 +251,12 @@ android.add_packaging_options = "pickFirst 'lib/*/libzbar.so'", "pickFirst 'lib/
 #android.manifest.orientation = fullSensor
 
 # (list) Android additional libraries to copy into libs/armeabi
-android.add_libs_armeabi = libs/android/libzbar.so
-android.add_libs_armeabi_v7a = libs/android-v7/libzbar.so
-android.add_libs_arm64_v8a = libs/android-v8/libzbar.so
-android.add_libs_x86 = libs/android-x86/libzbar.so
-android.add_libs_mips = libs/android-mips/libzbar.so
-android.add_libs_x86_64 = libs/opencv/x86_64/libzbar.so
+#android.add_libs_armeabi = libs/android/libzbar.so
+#android.add_libs_armeabi_v7a = libs/android-v7/libzbar.so
+#android.add_libs_arm64_v8a = libs/android-v8/libzbar.so
+#android.add_libs_x86 = libs/android-x86/libzbar.so
+#android.add_libs_mips = libs/android-mips/libzbar.so
+#android.add_libs_x86_64 = libs/opencv/x86_64/libzbar.so
 
 # (bool) Indicate whether the screen should stay on
 # Don't forget to add the WAKE_LOCK permission if you set this to True
@@ -273,7 +273,7 @@ android.add_libs_x86_64 = libs/opencv/x86_64/libzbar.so
 #android.uses_library =
 
 # (str) Android logcat filters to use
-android.logcat_filters = *:S python:D
+#android.logcat_filters = *:S python:D
 
 # (bool) Android logcat only display log for activity's pid
 #android.logcat_pid_only = False
@@ -286,7 +286,7 @@ android.logcat_filters = *:S python:D
 
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # In past, was `android.arch` as we weren't supporting builds for multiple archs at the same time.
-android.archs = arm64-v8a
+android.archs = arm64-v8a, armeabi-v7a
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
@@ -324,7 +324,7 @@ android.allow_backup = True
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-p4a.branch = master
+p4a.branch = develop
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
@@ -339,7 +339,7 @@ p4a.branch = master
 #p4a.hook =
 
 # (str) Bootstrap to use for android builds
-p4a.bootstrap = sdl2
+#p4a.bootstrap = sdl2
 
 # (int) port number to specify an explicit --port= p4a argument (eg for bootstrap flask)
 #p4a.port =
@@ -408,7 +408,7 @@ ios.codesign.allowed = false
 log_level = 2
 
 # (int) Display warning if buildozer is run as root (0 = False, 1 = True)
-warn_on_root = 0
+warn_on_root = 1
 
 # (str) Path to build artifact storage, absolute or relative to spec file
 # build_dir = ./.buildozer
