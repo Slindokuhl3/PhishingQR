@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.9.13,kivy==2.3.0,kivymd==1.1.1,sqlite3,pillow,requests,asyncio,camera4kivy,gestures4kivy,scikit-learn,opencv-python,asynckivy,materialyoucolor,setuptools,libiconv,libzbar,pyzbar,pyjnius,android
+requirements = python3==3.9.13,kivy==2.3.0,kivymd==1.1.1,pillow,requests,camera4kivy,gestures4kivy,scikit-learn,opencv-python,asynckivy,materialyoucolor,pyzbar,pyjnius
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -103,19 +103,19 @@ android.permissions = android.permission.INTERNET, (name=android.permission.WRIT
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 30
+android.api = 30
 
 # (int) Minimum API your APK / AAB will support.
-#android.minapi = 21
+android.minapi = 21
 
 # (int) Android SDK version to use
 #android.sdk = 30
 
 # (str) Android NDK version to use
-#android.ndk = 23b
+android.ndk = 25b
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
-#android.ndk_api = 21
+android.ndk_api = 21
 
 # (bool) Use --private data storage (True) or --dir public storage (False)
 #android.private_storage = True
@@ -203,12 +203,14 @@ android.permissions = android.permission.INTERNET, (name=android.permission.WRIT
 #android.add_resources =
 
 # (list) Gradle dependencies to add
-#android.gradle_dependencies = com.github.linusu:zbar-android:1.0.0,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.0
+android.gradle_dependencies = org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.0
+
+gradle_options = org.gradle.jvmargs=-Xmx4096M -XX:MaxPermSize=4096m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 
 # (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
 # contains an 'androidx' package, or any package from Kotlin source.
 # android.enable_androidx requires android.api >= 28
-#android.enable_androidx = False
+android.enable_androidx = True
 
 # (list) add java compile options
 # this can for example be necessary when importing certain java libraries using the 'android.gradle_dependencies' option
@@ -218,15 +220,14 @@ android.permissions = android.permission.INTERNET, (name=android.permission.WRIT
 # (list) Gradle repositories to add {can be necessary for some android.gradle_dependencies}
 # please enclose in double quotes 
 # e.g. android.gradle_repositories = "maven { url 'https://kotlin.bintray.com/ktor' }"
-#android.add_gradle_repositories = maven { url 'https://jitpack.io' }
+android.add_gradle_repositories = maven { url 'https://maven.google.com' }, maven { url 'https://jitpack.io' }
 
 # (list) packaging options to add 
 # see https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.PackagingOptions.html
 # can be necessary to solve conflicts in gradle_dependencies
 # please enclose in double quotes 
 # e.g. android.add_packaging_options = "exclude 'META-INF/common.kotlin_module'", "exclude 'META-INF/*.kotlin_module'"
-#android.add_packaging_options = "pickFirst 'lib/*/libzbar.so'", "pickFirst 'lib/*/libiconv.so'"
-
+android.add_packaging_options = "exclude 'META-INF/LICENSE.txt'", "exclude 'META-INF/LICENSE'", "exclude 'META-INF/NOTICE.txt'", "exclude 'META-INF/NOTICE'", "exclude 'META-INF/DEPENDENCIES'"
 # (list) Java classes to add as activities to the manifest.
 #android.add_activities = com.example.ExampleActivity
 
@@ -286,7 +287,7 @@ android.permissions = android.permission.INTERNET, (name=android.permission.WRIT
 
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # In past, was `android.arch` as we weren't supporting builds for multiple archs at the same time.
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
